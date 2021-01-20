@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { DonationComponent } from './donation/donation.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+// import {DataTablesModule} from '@angular/angular-datatables'; 
 // import {User} from './user';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    // DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

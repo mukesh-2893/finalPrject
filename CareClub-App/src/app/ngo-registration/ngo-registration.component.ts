@@ -8,7 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { User } from '../user';
 import { UserServiceService } from '../user-service.service'
-
+import {Address} from '../address';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-ngo-registration',
@@ -26,14 +27,6 @@ export class NGORegistrationComponent implements OnInit {
 
   
     fbFormGroup=this.fb.group({
-    // username:['',[ Validators.required,
-    //   Validators.min(5),
-    //   Validators.max(10),
-    //   Validators.pattern(/([a-z][A-z][0-9]){1}/),]],
-    // password:['',[ Validators.required,
-    //   Validators.min(5),
-    //   Validators.max(10),
-    //   Validators.pattern(/([a-z][A-z][0-9]){1}/),]]
     
     name:['',[ Validators.required,
       Validators.min(5),
@@ -75,12 +68,18 @@ export class NGORegistrationComponent implements OnInit {
   //constructor() { }
   constructor(private fb: FormBuilder , private http: HttpClient,private router: Router,
      private userService : UserServiceService, private route: ActivatedRoute) { }
-
-  user: User = new User();
-  lisenceId : number;
-  ngOnInit(): void { }
+  
+  submitted = false;
+  ngOnInit(): void {
+    this.submitted = false;
+   }
 
   saveUser() {
+    // this.user = new User();
+    // this.user.lisenceId = this.lisenceId.value;
+    // this.user.name = this.user.
+    
+    
     this.userService.createUser(this.user).subscribe(data => {
       console.log(data);
       this.gotologin();
@@ -91,16 +90,53 @@ export class NGORegistrationComponent implements OnInit {
   gotologin() {
     this.router.navigate(['login']);
   }
+  user: User = new User();
+  address: Address = new Address();
 
-  sighup() {
-    console.log(this.user);
-    this.saveUser();
+  lisenceId : any;
+  Category : any;
+  name :any;
+  email: any;
+  contactNo : any;
+  password : any;
+  blockNo : any;
+  area : any;
+  city : any;
+  district : any;
+  pincode : number;
+
+
+
+  sighup(): void{
+    // console.log(this.user);
+
+    let addNGO = {
+      Category : this.Category,
+      name : this.name,
+      email : this.name,
+      contactNo : this.contactNo,
+      password : this.password,
+      blockNo : this.blockNo,
+      area : this.area,
+      city : this.city,
+      district : this.district,
+      pincode : this.pincode,
+    };
+
+    let url = "http://localhost:8080/addNGO";
+    this.http.post('url', addNGO).subscribe((resp) => {
+      this.router.navigate(['login']);
+    });
   }
 
-  verifyLisence(){
-    this.userService.verifyLisence(this.lisenceId).subscribe( data => {
-      console.log("verify");
-      this.router.navigate(['ngo_registration']);
-    })
+  verifyLisence(): void{
+    let checked = {
+      lisenceId:this.lisenceId,
+    };
+
+    let url = "write url here";
+    this.http.post('url', checked).subscribe((resp) => {
+      alert("lisence verified");
+    });
   }
 }
