@@ -7,22 +7,35 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { User } from '../user';
 import { Post } from '../post';
+import { Address } from '../address';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  selector: 'app-ngo-home',
+  templateUrl: './ngo-home.component.html',
+  styleUrls: ['./ngo-home.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class NgoHomeComponent implements OnInit {
 
   //Object User
   user: User = new User();
   post: Post = new Post();
-  //Constructor
-  constructor(private fb: FormBuilder , private http: HttpClient, private router: Router) { }
+  address : Address = new Address();
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-}
+  gotoNgoDetailsEdit(){
+    this.router.navigate(['ngoDetailsEdit']);
+  }
 
+  gotoNgoDetails(){
+    this.router.navigate(['ngoDetails']);
+  }
+
+  gotoViewPost(){
+    
+  }
+
+}

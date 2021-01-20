@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NGORegistrationComponent } from './ngo-registration/ngo-registration.component';
-// import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { from } from 'rxjs';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -18,6 +18,10 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { DonationComponent } from './donation/donation.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { PostComponent } from './post/post.component';
+import { NgoHomeComponent } from './ngo-home/ngo-home.component';
+import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
+import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.component';
 // import {User} from './user';
 
 @NgModule({
@@ -30,7 +34,12 @@ import { UserHomeComponent } from './user-home/user-home.component';
     AboutComponent,
     DonationComponent,
     UserHomeComponent,
-    // UserRegistrationComponent
+    PostComponent,
+    UserRegistrationComponent,
+    NgoHomeComponent,
+    NgoDetailsComponent,
+    NgoDetailsEditComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
