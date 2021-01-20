@@ -18,14 +18,11 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { DonationComponent } from './donation/donation.component';
 import { UserHomeComponent } from './user-home/user-home.component';
-<<<<<<< HEAD
 import { PostComponent } from './post/post.component';
 import { NgoHomeComponent } from './ngo-home/ngo-home.component';
 import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
 import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.component';
-=======
 // import {DataTablesModule} from '@angular/angular-datatables'; 
->>>>>>> d82977546d208db9722bc4ca3f93fd8a0aa8dc93
 // import {User} from './user';
 
 @NgModule({

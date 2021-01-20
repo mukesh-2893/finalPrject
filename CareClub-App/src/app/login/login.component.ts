@@ -65,8 +65,12 @@ export class LoginComponent implements OnInit {
   }
 
 
-  gotoSignUp(){
+  gotoNGOSignUp(){
     this.router.navigate(['ngo_registration']);
+  }
+
+  gotoUserSignUp(){
+    this.router.navigate(['user_registration']);
   }
 
 }
