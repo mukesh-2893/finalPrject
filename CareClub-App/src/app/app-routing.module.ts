@@ -14,6 +14,7 @@ import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
 import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.component';
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'ngo_registration', component: NGORegistrationComponent },
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: 'ngoHome', component: NgoHomeComponent },
   { path: 'ngoDetails', component: NgoDetailsComponent },
   { path: 'ngoDetailsEdit', component: NgoDetailsEditComponent },
+  { path: "**", redirectTo: 'login', pathMatch: 'full' }
+
 ];
 
 @NgModule({
