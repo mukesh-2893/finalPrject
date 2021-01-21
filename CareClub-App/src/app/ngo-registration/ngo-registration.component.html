@@ -13,20 +13,20 @@
 <div class="container-fluid">
   <div class="row   justify-content-center  align-items-center "
         style="height: 80vh;">
-    <div [formGroup]="fbFormGroup"
+        <form (ngSubmit)="signUp()">
+    <div 
            class="col-12 col-md-8 mt-2 d-flex flex-column justify-content-center align-items-center" 
             style="background-color:#fff;  padding:2%; box-shadow: 5px 5px 5px 5px grey;">
        
                 <div  style="color:black; font-family: Cursive;">
-                 <h3>CaReCluB SignUp</h3></div>
-               
+                 <h3>CaReCluB SignUp</h3></div>               
               
     <!--License Number-->  
     <!-- <div class="col col-lg mt-2">
       <div class="form-group row ">
           <label for="inputPassword" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">License Number</label>
           <div class="col col-sm-6 ">
-              <input type="text" class="form-control " id="inputPassword" placeholder="License Number" [(ngModel)]="lisenceId" formControlName="lisenceId" required/>
+              <input type="text" class="form-control " id="inputPassword" placeholder="License Number" [(ngModel)]="lisenceId" Name="lisenceId" required/>
               
           </div>
           <button type="button" class="btn btn-primary btn-sm" style="background-color: #339966;"
@@ -42,11 +42,11 @@
       <div class="form-group row ">
          
               <label class="col-sm-3 col-form-label" for="inlineFormCustomSelect" style="font-size: 20px; font-weight: bold;">User Role</label>
-              <select class="col col-sm-6 custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="Category">
+              <select  class="col col-sm-6 custom-select mr-sm-2" id="inlineFormCustomSelect">
                 <option >Select...</option>
                 <!-- <option value="1">Admin</option> -->
-                <option value="2" >User</option>
-                <option value="3">NGO</option>
+                <option value="2" name="User" [(ngModel)]=m_Role.roleId>User</option>
+                <option value="3" name="NGO" [(ngModel)]=m_Role.roleId>NGO</option>
                 <!-- <option value="4">Livelihood</option>
                 <option value="5">Woman</option> -->
               </select>
@@ -60,20 +60,22 @@
                 <div class="form-group row ">
                     <label for="inputName" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;"> Name</label>
                     <div class="col col-sm-6 ">
-                        <input type="Text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="Text" class="form-control" id="inputName" placeholder="Name"
+                        name="name" [(ngModel)]="userReg.name">
                           
                 </div>
           </div>
           <label style="color: rgb(12, 124, 77);" 
-            *ngIf="fbFormGroup.get('username').invalid && 
-            fbFormGroup.get('username').touched ">Username required / invalid </label>
+            *ngIf="fbFormGroup.get('name').invalid && 
+            fbFormGroup.get('name').touched ">Username required / invalid </label>
 
             <!--Email ID-->  
             <div class="col col-lg mt-2">
                 <div class="form-group row ">
                     <label for="inputEmailId" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Email ID</label>
                     <div class="col col-sm-6 ">
-                        <input type="email" class="form-control" id="inputEmailId" placeholder="Email ID" >
+                        <input type="email" class="form-control" id="inputEmailId" placeholder="Email ID" 
+                        name="email" [(ngModel)]="userReg.email">
                     </div>                
                 </div>
           </div>
@@ -84,22 +86,24 @@
             <!--Contact Number-->  
             <div class="col col-lg mt-2">
                 <div class="form-group row ">
-                    <label for="inputContactNo" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Contact Number</label>
+                    <label for="inputContactNo" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Mobile Number</label>
                     <div class="col col-sm-6 ">
-                        <input type="text" class="form-control" id="inputContactNo" placeholder="Contact Number">
+                        <input type="text" class="form-control" id="inputContactNo" placeholder="Mobile Number"
+                        name="mobileNo" [(ngModel)]="userReg.mobileNo">
                     </div>                
                 </div>
           </div>
           <label style="color: rgb(12, 124, 77);" 
-            *ngIf="fbFormGroup.get('contactno').invalid && 
-            fbFormGroup.get('contactno').touched ">Contact No required / invalid </label>    
+            *ngIf="fbFormGroup.get('mobileNo').invalid && 
+            fbFormGroup.get('mobileNo').touched ">Mobile No required / invalid </label>    
 
             <!--Password-->  
             <div class="col col-lg mt-2">
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Password</label>
                     <div class="col col-sm-6 ">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" >
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" 
+                        name="password" [(ngModel)]="userReg.password">
                     </div>                
                 </div>
           </div>
@@ -108,7 +112,7 @@
             fbFormGroup.get('password').touched ">Password required / invalid </label> 
 
             <!--Confirm Password-->  
-            <div class="col col-lg mt-2">
+            <!-- <div class="col col-lg mt-2">
                 <div class="form-group row ">
                     <label for="inputPassword" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Confirm Password</label>
                     <div class="col col-sm-6 ">
@@ -118,7 +122,7 @@
           </div>
           <label style="color: rgb(12, 124, 77);" 
             *ngIf="fbFormGroup.get('password').invalid && 
-            fbFormGroup.get('password').touched ">Password required / invalid </label> 
+            fbFormGroup.get('password').touched ">Password required / invalid </label>  -->
 
           <!--Address-->  
           <div class="col col-lg mt-2">
@@ -126,44 +130,34 @@
                 <label for="inputAddress" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Address</label>
                 <div class="form-row">
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="Block No">
+                      <input type="text" class="form-control" placeholder="Room No" name="roomNo" [(ngModel)]="address.roomNo">
                     </div>
                     <div class="col-3">
-                      <input type="text" class="form-control" placeholder="Area">
+                      <input type="text" class="form-control" placeholder="Area" name="area" [(ngModel)]="address.area">
                     </div>
                     <div class="col-3">
                         <input type="text" class="form-control" placeholder="City"
-                        [(ngModel)]="address.city" name="city">
+                        name="city" [(ngModel)]="address.city">
                     </div>
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="District">
+                      <input type="text" class="form-control" placeholder="District" name="district" [(ngModel)]="address.district">
                     </div>
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="Pin Code" >
+                      <input type="text" class="form-control" placeholder="Pin Code" name="pincode" [(ngModel)]="address.pincode">
                     </div>
                   </div>               
             </div>
       </div>
       <label style="color: rgb(12, 124, 77);" 
         *ngIf="fbFormGroup.get('address').invalid && 
-        fbFormGroup.get('address').touched ">Address required / invalid </label>  
-
-        
-      <label style="color: rgb(12, 124, 77);" 
-        *ngIf="fbFormGroup.get('password').invalid && 
-        fbFormGroup.get('password').touched ">Password required / invalid </label>
-
-         
-         
-        <label style="color:rgb(12, 124, 77);;" 
-            *ngIf="fbFormGroup.get('username').invalid && 
-            fbFormGroup.get('username').touched ">Username required / invalid </label>  
+        fbFormGroup.get('address').touched ">Address required / invalid </label>
 
             <!--button-->
             <div class="mt-2">
-                <button type="button" class="btn btn-primary mr-3" style="background-color: #339966;" [disabled]="!fbFormGroup.valid" (click)= "sighup()">SignUp</button>
+                <button type="submit" class="btn btn-primary mr-3" style="background-color: #339966;" >SignUp</button>
                 <button type="button" class="btn btn-primary" style="background-color: #339966;" (click)="gotologin()">Login</button>
             </div>
         </div>
         </div>
+      </form>
     </div>

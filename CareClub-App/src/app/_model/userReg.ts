@@ -1,7 +1,7 @@
 import{Address} from '../_model/address';
 import { M_Role } from '../_model/m_Role';
 
-export class UserReg {
+export class UserReg extends M_Role {
     userId : number;
     roleId : number;
     address : any;

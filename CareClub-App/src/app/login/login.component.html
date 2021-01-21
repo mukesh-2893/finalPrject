@@ -11,10 +11,10 @@
 </div>
 
 <div class="container-fluid" style="background-image: url('/Images/ngo_background_2.jpg');">
+  <form (ngSubmit)="loginCheck()">
   <div class="row justify-content-center align-items-center "
         style="height: 80vh;">
-    <div [formGroup]="fbFormGroup"
-          class="col-10 col-md-4  d-flex flex-column justify-content-center align-items-center" 
+    <div class="col-10 col-md-4  d-flex flex-column justify-content-center align-items-center" 
           style="box-shadow: 5px 5px 5px 5px grey; padding:2%;">
      
       <div  style="color:black; font-family: Cursive;">
@@ -28,7 +28,7 @@
               <div class="input-group-text">@</div>
             </div>
             <input type="text" class="form-control" id="inlineFormInputGroup" 
-                   placeholder="Email" formControlName="username"/>
+                   placeholder="Email" [(ngModel)]="login.email" name="email"/>
           </div>
       </div>
       <label style="color: red;" 
@@ -46,7 +46,7 @@
               <div class="input-group-text"><fa-icon [icon]="faUnlockAlt"></fa-icon></div>
             </div>
             <input type="password" class="form-control" id="inlineFormInputGroup" 
-                   placeholder="Password" formControlName="password"/>
+                   placeholder="Password" [(ngModel)]="login.password" name="password"/>
           </div>
       </div>
               
@@ -58,8 +58,9 @@
      
       <!--button-->     
       <div class="mt-2">
-        <button type="button" class="btn btn-primary mr-3" style="background-color: #339966;" [disabled]="!fbFormGroup.valid" (click)= "userLogin()">Login</button>
-      </div> 
+        <button type="submit" class="btn btn-primary mr-3" style="background-color: #339966;" >Login</button>
+      </div>
+    
       <a [routerLink]="['/forgotPassword']" routerLinkActive="router-link-active" >Forgot password?</a>
      
       <h5 class="mt-2" style="color:black; font-family: Cursive;">---For new user Sign up---</h5>               
@@ -89,6 +90,8 @@
                 
     </div>
   </div>
+</form>
 </div>
+
 
       

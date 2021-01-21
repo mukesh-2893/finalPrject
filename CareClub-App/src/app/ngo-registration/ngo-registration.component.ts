@@ -8,8 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'
 import { UserReg } from '../_model/userReg';
 import { UserServiceService } from '../user-service.service'
-import {Address} from '../address';
+import {Address} from '../_model/address';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { M_Role } from '../_model/m_Role';
 
 @Component({
   selector: 'app-ngo-registration',
@@ -37,7 +38,7 @@ export class NGORegistrationComponent implements OnInit {
         Validators.email,]],
     
     //ContactNo
-    contactno:['',[ Validators.required,
+    mobileNo:['',[ Validators.required,
       Validators.min(0),
       Validators.max(10),]],
     
@@ -67,8 +68,10 @@ export class NGORegistrationComponent implements OnInit {
 
   //constructor() { }
   constructor(private fb: FormBuilder , private http: HttpClient,private router: Router,
-     private userService : UserServiceService, private route: ActivatedRoute, private userReg : UserReg) { }
+     private userService : UserServiceService, private route: ActivatedRoute) { }
   
+
+     
   submitted = false;
   ngOnInit(): void {
     this.submitted = false;
@@ -77,21 +80,48 @@ export class NGORegistrationComponent implements OnInit {
   gotologin() {
     this.router.navigate(['login']);
   }
-  // userReg: UserReg = new UserReg();
-  address: Address = new Address();
+  public userReg: UserReg = new UserReg();
+  public address: Address = new Address();
+  public m_Role : M_Role = new M_Role();
 
+  
+  // role(){
+  // var i =  this.m_Role.roleId;
+  // alert(i);
+  // };
 
-  sighup(){
-    // console.log(this.user);
-
-    alert(JSON.stringify(this.userReg));
-    this.userService.createUser(this.userReg).subscribe(response => {
-      alert(JSON.stringify(response));
-      // if(response. == 'SUCCESS')
-      // sessionStorage.setItem('customerId', responce.registerCustomerId);
-      // this.router.navigate(['thankyou']);
-    })
+  signUp() {
+    let user = {
+      'm_Role' :
+       { 'roleId' : this.m_Role.roleId },
+      'name' : this.userReg.name,
+      'email' : this.userReg.email,
+      'mobileNo' : this.userReg.mobileNo,
+      'password' : this.userReg.password,
+      'address' : 
+        {
+        'roomNo' : this.address.roomNo,
+        'area' : this.address.area,
+        'city' : this.address.city,
+        'district' : this.address.district,
+        'pincode' : this.address.pincode
+      }
+    }
+    alert(JSON.stringify(user));
   }
+
+  // signUp(){
+  //   // console.log(this.user);
+
+  //   alert(JSON.stringify(this.userReg));
+  //   alert(JSON.stringify(this.userReg));
+  //   this.userService.createUser(this.userReg).subscribe(response => {
+  //     alert(JSON.stringify(response));
+  //     // if(response. == 'SUCCESS')
+  //     // sessionStorage.setItem('customerId', responce.registerCustomerId);
+  //     // this.router.navigate(['thankyou']);
+  //   })
+  // }
   }
 
   

@@ -7,7 +7,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { UserReg } from '../_model/userReg';
 import { Post } from '../_model/post';
-import { Address } from '../address';
+import {Address} from '../_model/address';
 
 @Component({
   selector: 'app-ngo-details-edit',

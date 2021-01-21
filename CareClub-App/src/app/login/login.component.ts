@@ -5,6 +5,10 @@ import{ faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import{ Router } from '@angular/router';
+import { UserReg } from '../_model/userReg';
+import { UserServiceService } from '../user-service.service';
+import { Login } from '../_model/login';
+
 
 
 @Component({
@@ -46,24 +50,36 @@ export class LoginComponent implements OnInit {
   });
 
   //constructor() { }
-  constructor(private fb: FormBuilder , private http: HttpClient,private router: Router) { }
+  constructor(private fb: FormBuilder , private http: HttpClient,private router: Router,
+    private userService : UserServiceService) { }
 
   ngOnInit(): void {
   }
 
-  async userLogin(){
-    const data=this.fbFormGroup.value;
-    console.log(data);
+  public userReg: UserReg = new UserReg();
 
-    const url ='http://localhost:3000/adminlogin';
-    const result= await this.http.post(url,data).toPromise();
-    console.log(result);
-    
-    sessionStorage.setItem('sid','true');
-    this.router.navigate(['']);
-    this.fbFormGroup.reset();
+  // login(){
+  //   let user = {
+  //     'email' : this.userReg.email,
+  //     'password' : this.userReg.password
+  //   }
+
+  //   alert(JSON.stringify(user));
+  // }
+  
+  login: Login = new Login();
+
+  loginCheck() {
+    alert(JSON.stringify(this.login));
+    this.userService.login(this.login).subscribe(loginStatus => {
+      //alert(JSON.stringify(loginStatus));
+      if(loginStatus.status == 'SUCCESS') {
+        sessionStorage.setItem('userId', String(loginStatus.userId));
+        sessionStorage.setItem('name', loginStatus.name);
+        this.router.navigate(['userHome']);
+      }
+    })
   }
-
 
   gotoNGOSignUp(){
     this.router.navigate(['ngo_registration']);
