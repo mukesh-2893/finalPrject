@@ -4,7 +4,7 @@ import { M_Role } from '../_model/m_Role';
 export class UserReg {
     userId : number;
     roleId : number;
-    addressId : any;
+    address : any;
     name : string;
     password: string;
     email : string;

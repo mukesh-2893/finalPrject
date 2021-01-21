@@ -74,59 +74,24 @@ export class NGORegistrationComponent implements OnInit {
     this.submitted = false;
    }
 
-  saveUser() {
-    // this.user = new User();
-    // this.user.lisenceId = this.lisenceId.value;
-    // this.user.name = this.user.
-    
-    
-    this.userService.createUser(this.user).subscribe(data => {
-      console.log(data);
-      this.gotologin();
-    },
-    error => console.log(error));
-  }
-
   gotologin() {
     this.router.navigate(['login']);
   }
   user: User = new User();
   address: Address = new Address();
 
-  lisenceId : any;
-  Category : any;
-  name :any;
-  email: any;
-  contactNo : any;
-  password : any;
-  blockNo : any;
-  area : any;
-  city : any;
-  district : any;
-  pincode : number;
 
-
-
-  sighup(): void{
+  sighup(){
     // console.log(this.user);
 
-    let addNGO = {
-      Category : this.Category,
-      name : this.name,
-      email : this.name,
-      contactNo : this.contactNo,
-      password : this.password,
-      blockNo : this.blockNo,
-      area : this.area,
-      city : this.city,
-      district : this.district,
-      pincode : this.pincode,
-    };
-
-    let url = "http://localhost:8080/addNGO";
-    this.http.post('url', addNGO).subscribe((resp) => {
-      this.router.navigate(['login']);
-    });
+    alert(JSON.stringify(this.user));
+    this.userService.createUser(this.user).subscribe(responce => {
+      // alert(JSON.stringify(responce));
+      if(responce.status == 'SUCCESS')
+      sessionStorage.setItem('customerId', responce.registerCustomerId);
+      this.router.navigate(['thankyou']);
+    })
+  }
   }
 
   verifyLisence(): void{

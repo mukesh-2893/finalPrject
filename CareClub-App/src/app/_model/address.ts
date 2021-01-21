@@ -1,7 +1,7 @@
 export class Address{
     addressId : number;
     roomNo : string;
-    are : string;
+    area : string;
     city : string;
     district : string;
     pincode : number;
