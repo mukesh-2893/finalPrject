@@ -12,7 +12,8 @@ import { PostComponent } from './post/post.component';
 import { NgoHomeComponent } from './ngo-home/ngo-home.component';
 import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
 import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.component';
-
+import { CreatePostComponent } from './create-post/create-post.component';
+import { NgoViewPostComponent } from './ngo-view-post/ngo-view-post.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,8 @@ const routes: Routes = [
   { path: 'ngoHome', component: NgoHomeComponent },
   { path: 'ngoDetails', component: NgoDetailsComponent },
   { path: 'ngoDetailsEdit', component: NgoDetailsEditComponent },
+  { path: 'createPost', component: CreatePostComponent },
+  { path: 'ngo_viewPost', component: NgoViewPostComponent },
   { path: "**", redirectTo: 'login', pathMatch: 'full' }
 
 ];
