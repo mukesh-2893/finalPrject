@@ -6,7 +6,7 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'
-import { User } from '../user';
+import { UserReg } from '../_model/userReg';
 import { UserServiceService } from '../user-service.service'
 import { Address } from '../address';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
@@ -66,14 +66,21 @@ export class NGORegistrationComponent implements OnInit {
   });
 
   //constructor() { }
+<<<<<<< HEAD
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router,
     private userService: UserServiceService, private route: ActivatedRoute) { }
 
+=======
+  constructor(private fb: FormBuilder , private http: HttpClient,private router: Router,
+     private userService : UserServiceService, private route: ActivatedRoute, private userReg : UserReg) { }
+  
+>>>>>>> 2bbd8720c3f7ceeb70ca8080fc129913841daa1f
   submitted = false;
   ngOnInit(): void {
     this.submitted = false;
   }
 
+<<<<<<< HEAD
   saveUser() {
     // this.user = new User();
     // this.user.lisenceId = this.lisenceId.value;
@@ -87,12 +94,15 @@ export class NGORegistrationComponent implements OnInit {
       error => console.log(error));
   }
 
+=======
+>>>>>>> 2bbd8720c3f7ceeb70ca8080fc129913841daa1f
   gotologin() {
     this.router.navigate(['login']);
   }
-  user: User = new User();
+  // userReg: UserReg = new UserReg();
   address: Address = new Address();
 
+<<<<<<< HEAD
   lisenceId: any;
   Category: any;
   name: any;
@@ -138,5 +148,20 @@ export class NGORegistrationComponent implements OnInit {
     this.http.post('url', checked).subscribe((resp) => {
       alert("lisence verified");
     });
+=======
+
+  sighup(){
+    // console.log(this.user);
+
+    alert(JSON.stringify(this.userReg));
+    this.userService.createUser(this.userReg).subscribe(response => {
+      alert(JSON.stringify(response));
+      // if(response. == 'SUCCESS')
+      // sessionStorage.setItem('customerId', responce.registerCustomerId);
+      // this.router.navigate(['thankyou']);
+    })
   }
-}
+>>>>>>> 2bbd8720c3f7ceeb70ca8080fc129913841daa1f
+  }
+
+  

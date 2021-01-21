@@ -22,6 +22,8 @@ import { PostComponent } from './post/post.component';
 import { NgoHomeComponent } from './ngo-home/ngo-home.component';
 import { NgoDetailsComponent } from './ngo-details/ngo-details.component';
 import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { NgoViewPostComponent } from './ngo-view-post/ngo-view-post.component';
 // import {DataTablesModule} from '@angular/angular-datatables'; 
 // import {User} from './user';
 
@@ -40,7 +42,9 @@ import { NgoDetailsEditComponent } from './ngo-details-edit/ngo-details-edit.com
     NgoHomeComponent,
     NgoDetailsComponent,
     NgoDetailsEditComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    CreatePostComponent,
+    NgoViewPostComponent
   ],
   imports: [
     BrowserModule,
