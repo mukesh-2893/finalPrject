@@ -8,21 +8,21 @@ import { User } from './user';
 })
 export class UserServiceService {
 
-  private baseURL = "http://localhost:8080/api/";
-  private lisenceURL = "http://localhost:8080/api/";
+  private baseURL = "http://localhost:8080/useradd";
+  private lisenceURL = "http://localhost:8080/licenseVerify";
   private forgotPasswordURL = "http://localhost:8080/api/"
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  createUser(user: Object): Observable<Object>{
+  createUser(user: Object): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}`, user);
   }
 
-  verifyLisence(lisenceId : number): Observable<User>{
+  verifyLisence(lisenceId: number): Observable<User> {
     return this.httpClient.get<User>(`${this.lisenceURL}/${lisenceId}`);
   }
 
-  forgotPasswordFn(password : string): Observable<User>{
+  forgotPasswordFn(password: string): Observable<User> {
     return this.httpClient.get<User>(`${this.forgotPasswordURL}/${password}`);
 
   }
