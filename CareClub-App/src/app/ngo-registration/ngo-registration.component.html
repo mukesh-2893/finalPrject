@@ -22,7 +22,7 @@
                
               
     <!--License Number-->  
-    <div class="col col-lg mt-2">
+    <!-- <div class="col col-lg mt-2">
       <div class="form-group row ">
           <label for="inputPassword" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">License Number</label>
           <div class="col col-sm-6 ">
@@ -32,27 +32,27 @@
           <button type="button" class="btn btn-primary btn-sm" style="background-color: #339966;"
           (click)="verifyLisence()">Verify</button>
       </div>
-</div>
+</div> 
 <label style="color: rgb(12, 124, 77);" 
   *ngIf="fbFormGroup.get('licenseno').invalid && 
-  fbFormGroup.get('licenseno').touched ">License No required / invalid </label>
+  fbFormGroup.get('licenseno').touched ">License No required / invalid </label> -->
 
-    <!--NGO Category-->  
-    <!-- <div class="col col-lg mt-2">
+    <!--User Role-->  
+     <div class="col col-lg mt-2">
       <div class="form-group row ">
          
-              <label class="col-sm-3 col-form-label" for="inlineFormCustomSelect" style="font-size: 20px; font-weight: bold;">NGO Category</label>
+              <label class="col-sm-3 col-form-label" for="inlineFormCustomSelect" style="font-size: 20px; font-weight: bold;">User Role</label>
               <select class="col col-sm-6 custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="Category">
-                <option selected>Select...</option>
-                <option value="1">Child</option>
-                <option value="2">Orphanage</option>
-                <option value="3">Disaster Relief & Rehabilitation</option>
-                <option value="4">Livelihood</option>
-                <option value="5">Woman</option>
+                <option >Select...</option>
+                <!-- <option value="1">Admin</option> -->
+                <option value="2" >User</option>
+                <option value="3">NGO</option>
+                <!-- <option value="4">Livelihood</option>
+                <option value="5">Woman</option> -->
               </select>
                        
       </div>
-  </div> -->
+  </div> 
 
 
               <!--Name-->  
@@ -60,9 +60,8 @@
                 <div class="form-group row ">
                     <label for="inputName" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;"> Name</label>
                     <div class="col col-sm-6 ">
-                        <input type="Text" class="form-control" id="inputName" placeholder="Name"
-                          [(ngModel)]="user.name" formControlName="name" name="name">
-                    </div>                
+                        <input type="Text" class="form-control" id="inputName" placeholder="Name">
+                          
                 </div>
           </div>
           <label style="color: rgb(12, 124, 77);" 
@@ -74,8 +73,7 @@
                 <div class="form-group row ">
                     <label for="inputEmailId" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Email ID</label>
                     <div class="col col-sm-6 ">
-                        <input type="email" class="form-control" id="inputEmailId" placeholder="Email ID" 
-                        [(ngModel)]="user.email" formControlName="email">
+                        <input type="email" class="form-control" id="inputEmailId" placeholder="Email ID" >
                     </div>                
                 </div>
           </div>
@@ -88,8 +86,7 @@
                 <div class="form-group row ">
                     <label for="inputContactNo" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Contact Number</label>
                     <div class="col col-sm-6 ">
-                        <input type="text" class="form-control" id="inputContactNo" placeholder="Contact Number"
-                          [(ngModel)]="user.contactNumber" formControlName="contactNo">
+                        <input type="text" class="form-control" id="inputContactNo" placeholder="Contact Number">
                     </div>                
                 </div>
           </div>
@@ -99,11 +96,10 @@
 
             <!--Password-->  
             <div class="col col-lg mt-2">
-                <div class="form-group row ">
+                <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Password</label>
                     <div class="col col-sm-6 ">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
-                        [(ngModel)]="user.password" formControlName="password">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" >
                     </div>                
                 </div>
           </div>
@@ -130,20 +126,20 @@
                 <label for="inputAddress" class="col-sm-3 col-form-label" style="font-size: 20px; font-weight: bold;">Address</label>
                 <div class="form-row">
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="Block No" formControlName="blockNo">
+                      <input type="text" class="form-control" placeholder="Block No">
                     </div>
                     <div class="col-3">
-                      <input type="text" class="form-control" placeholder="Area" formControlName="area">
+                      <input type="text" class="form-control" placeholder="Area">
                     </div>
                     <div class="col-3">
                         <input type="text" class="form-control" placeholder="City"
-                        [(ngModel)]="address.city" name="city" formControlName="city">
+                        [(ngModel)]="address.city" name="city">
                     </div>
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="District" formControlName="district">
+                      <input type="text" class="form-control" placeholder="District">
                     </div>
                     <div class="col-2">
-                      <input type="text" class="form-control" placeholder="Pin Code" formControlName="pinCode">
+                      <input type="text" class="form-control" placeholder="Pin Code" >
                     </div>
                   </div>               
             </div>

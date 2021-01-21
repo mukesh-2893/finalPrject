@@ -5,8 +5,8 @@ import{ Router } from '@angular/router';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { User } from '../user';
-import { Post } from '../post';
+import { UserReg } from '../_model/userReg';
+import { Post } from '../_model/post';
 import { Address } from '../address';
 
 @Component({
@@ -17,7 +17,7 @@ import { Address } from '../address';
 export class NgoHomeComponent implements OnInit {
 
   //Object User
-  user: User = new User();
+  // user: User = new User();
   post: Post = new Post();
   address : Address = new Address();
 

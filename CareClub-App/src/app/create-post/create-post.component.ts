@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import { User } from '../user';
-import { Post } from '../post';
+// import { User } from '../user';
+import { Post } from '../_model/post';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { Post } from '../post';
 export class CreatePostComponent implements OnInit {
 
   //Object User
-  user: User = new User();
+  // user: User = new User();
   post: Post = new Post();
 
   constructor() { }

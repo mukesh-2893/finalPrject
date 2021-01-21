@@ -6,7 +6,7 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'
-import { User } from '../user';
+import { UserReg } from '../_model/userReg';
 import { UserServiceService } from '../user-service.service'
 import {Address} from '../address';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
@@ -67,7 +67,7 @@ export class NGORegistrationComponent implements OnInit {
 
   //constructor() { }
   constructor(private fb: FormBuilder , private http: HttpClient,private router: Router,
-     private userService : UserServiceService, private route: ActivatedRoute) { }
+     private userService : UserServiceService, private route: ActivatedRoute, private userReg : UserReg) { }
   
   submitted = false;
   ngOnInit(): void {
@@ -77,31 +77,21 @@ export class NGORegistrationComponent implements OnInit {
   gotologin() {
     this.router.navigate(['login']);
   }
-  user: User = new User();
+  // userReg: UserReg = new UserReg();
   address: Address = new Address();
 
 
   sighup(){
     // console.log(this.user);
 
-    alert(JSON.stringify(this.user));
-    this.userService.createUser(this.user).subscribe(responce => {
-      // alert(JSON.stringify(responce));
-      if(responce.status == 'SUCCESS')
-      sessionStorage.setItem('customerId', responce.registerCustomerId);
-      this.router.navigate(['thankyou']);
+    alert(JSON.stringify(this.userReg));
+    this.userService.createUser(this.userReg).subscribe(response => {
+      alert(JSON.stringify(response));
+      // if(response. == 'SUCCESS')
+      // sessionStorage.setItem('customerId', responce.registerCustomerId);
+      // this.router.navigate(['thankyou']);
     })
   }
   }
 
-  verifyLisence(): void{
-    let checked = {
-      lisenceId:this.lisenceId,
-    };
-
-    let url = "write url here";
-    this.http.post('url', checked).subscribe((resp) => {
-      alert("lisence verified");
-    });
-  }
-}
+  

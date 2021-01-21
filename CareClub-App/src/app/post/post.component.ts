@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../user';
-import { Post } from '../post';
+import { UserReg } from '../_model/userReg';
+import { Post } from '../_model/post';
 
 @Component({
   selector: 'app-post',
@@ -11,7 +11,7 @@ import { Post } from '../post';
 export class PostComponent implements OnInit {
 
   //Object User
-  user: User = new User();
+  // user: User = new User();
   post: Post = new Post();
   
   constructor() { }
